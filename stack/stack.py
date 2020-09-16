@@ -25,18 +25,19 @@ class Stack:
         # self.storage = ?
 
     def __len__(self):
-        return len(str(self.size))
+        return self.size
 
     def push(self, val):
         newNode = Node(val)
         if(self.head == None): 
             self.head = newNode
             self.tail = newNode
+            self.size = self.size +1
         else:
             oldHead = self.head
             self.head = newNode
             self.head.next = oldHead
-        return str(self.size) + '1'
+            self.size = self.size +1
 
     def pop(self):
         if not self.head:
