@@ -1,7 +1,7 @@
 class Node: 
     def __init__(self, value=None, next_node=None):
         self.value = value
-        self.next = next_node
+        self.next_node = next_node
 
     def get_val(self):
         return self.value
@@ -39,34 +39,48 @@ class LinkedList:
         if self.head is None:
             return None
         else:
-          oldHead = self.head
+          oldHead = self.head.get_val()
         if self.head == self.tail:
             self.head = None
             self.tail = None
         else: 
-            self.head = self.head.get_next_node
+            self.head = self.head.get_next_node()
         return oldHead
 
     def remove_tail(self):
-      # Empty list? return None
-       
-      # list with 1 element remove item and update head and tail to be None
+        if self.head is None:
+            return None
+        current = self.head
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+            return current.get_val()
+        else: 
+            previous = current
+            while current.next_node is not None:
+                previous = current
+                current = current.next_node
+            self.tail = previous
+            self.tail.set_next_node(None)
 
-      # list with 2 or more elements update tail
-      pass
+            if self.head == self.tail:
+                self.tail = None
+                self.head = None
+                return current.get_val()
+            return current.get_val()
 
     def contains(self, value):
-      # loop through list until next pointer is None 
       current = self.head
       while current is not None:
           if current.get_val() == value:
               return True
       return False
-          # if we find 'value'
-              # return True
-
-      # return False
-      pass
 
     def get_max(self):
-      pass
+        current = self.head
+        max_num = current.get_val()
+        while current is not None:
+            if current > max_num:
+                max_num = current
+            current = current.next_node
+        return max_num

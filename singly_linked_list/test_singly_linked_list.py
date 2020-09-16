@@ -26,6 +26,7 @@ class LinkedListTests(unittest.TestCase):
         self.assertIsNone(self.list.remove_head())
 
     def test_remove_tail(self):
+        self.list.add_to_tail(20)
         self.list.add_to_tail(30)
         self.list.add_to_tail(40)
         self.assertEqual(self.list.remove_tail(), 40)
