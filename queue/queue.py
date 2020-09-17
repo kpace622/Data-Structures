@@ -15,12 +15,28 @@ Stretch: What if you could only use instances of your Stack class to implement t
 """
 from Node import Node
 
-# Array
+# Array Method
 
-# queue = []
+class Queue:
+    def __init__(self):
+        self.size = 0
+        self.storage = []
 
-# 
+    def __len__(self):
+        return len(self.storage)
 
+    def dequeue(self):
+        # self.storage = self.storage - 1
+        if len(self.storage) == 0:
+            return None
+        return self.storage.pop()
+
+    def enqueue(self, value):
+        # self.storage = self.storage + 1
+        return self.storage.insert(0, value)
+
+
+# Linked List Method
 
 class Queue:
     def __init__(self):

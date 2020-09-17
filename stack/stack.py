@@ -12,6 +12,28 @@ return elements in Last In First Out order.
 """
 
 from Node import Node
+
+# Array method
+
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.storage = []
+
+    def __len__(self):
+        return len(self.storage)
+
+    def pop(self):
+        # self.storage = self.storage - 1
+        if len(self.storage) == 0:
+            return None
+        return self.storage.pop()
+
+    def push(self, value):
+        # self.storage = self.storage + 1
+        return self.storage.append(value)
+
+# Linked List method
         
 class Stack:
     def __init__(self):
