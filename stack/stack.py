@@ -11,11 +11,7 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
-class Node:
-    def __init__(self, val=None, next=None):
-        self.val = val
-        self.next = next
-
+from Node import Node
         
 class Stack:
     def __init__(self):
@@ -36,26 +32,16 @@ class Stack:
         else:
             oldHead = self.head
             self.head = newNode
-            self.head.next = oldHead
+            self.head.next_node = oldHead
             self.size = self.size +1
 
     def pop(self):
         if not self.head:
             return None
-        oldNode = self.head.val
+        oldNode = self.head.value
         if(self.head == self.tail):
             self.tail = None
-        self.head = self.head.next
+        self.head = self.head.next_node
         self.size = self.size - 1
         return oldNode
 
-    def contains(self, val):
-        if self.head is None:
-            return False
-        current_node = self.head
-
-        while current_node is not None:
-            if current_node.val == val:
-                return True
-            current_node = current_node.next
-        return False
