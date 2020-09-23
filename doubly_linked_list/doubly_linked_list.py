@@ -7,18 +7,13 @@ class ListNode:
         self.prev = prev
         self.value = value
         self.next = next
-    
+
+
     def delete(self):
         if self.prev:
-            if self.next is None:
-                self.tail = self.prev
-            else:
-                self.next.prev = self.prev
+            self.prev.next = self.next
         if self.next:
-            if self.prev is None:
-                self.head = self.next
-            else:
-                self.prev.next = self.next
+            self.next.prev = self.prev
 
     def get_value(self):
         return self.value
